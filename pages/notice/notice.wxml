@@ -1,0 +1,16 @@
+<!--pages/notice/notice.wxml-->
+
+<import src="../../components/wxParse/wxParse.wxml" />
+
+<view class="bg-white pd-all-10">
+  <view class="mt-10 color-detail">温馨提示</view>
+  <view class="mt-10 fs-15">
+    {{caption.note}}
+  </view>
+  <view class="mt-10 color-detail">会见须知</view>
+  <view class="mt-10"></view>
+   <template is="wxParse" data="{{wxParseData:detail_content.nodes}}" />
+  <!-- <view class="fs-12 color-333 lh-22 mt-15" wx:for="{{meet}}" wx:key="index">
+    {{item.note}}
+  </view> -->
+</view>

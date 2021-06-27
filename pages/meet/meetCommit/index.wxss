@@ -1,0 +1,51 @@
+/* pages/meet/meetCommit/index.wxss */
+
+page {
+  background-color: white;
+}
+
+.time-tap {
+  border: 1px solid rgba(41, 135, 249, 1);
+  border-radius: 2px;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.time-item {
+  max-width:150rpx;
+  min-width: 60px;
+  text-align: center;
+  height: 72rpx;
+  line-height: 72rpx;
+  color: rgba(153, 153, 153, 1);
+  font-size: 28rpx;
+  position: relative;
+  transition: all .15s ease-in-out;
+}
+
+.time-item:not(:last-of-type)::after {
+  width: 1px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  right: 0;
+  background-color: rgba(41, 135, 249, 1);
+}
+.time-active{
+  background-color:  rgba(41, 135, 249, 1);
+  color: white;
+}
+
+.message-btn{
+  background-color: rgba(41, 135, 249, 1);
+  color: white;
+  margin: 0rpx;
+  width: 200rpx !important;
+  padding: 0rpx;
+  line-height: 60rpx;
+  height: 60rpx !important;
+  min-height: 60rpx !important;
+  display: inline-block;
+  font-size: 28rpx;
+  font-weight: normal;
+}

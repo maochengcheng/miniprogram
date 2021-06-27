@@ -1,0 +1,18 @@
+/* pages/register/home/index.wxss */
+.bind-other{
+  background-color: #f5f5f5;
+  color: #2987f9;
+  text-align: right;
+  padding: 0px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  font-size: 12px;
+  text-decoration: underline;
+  width: 100% !important;
+  min-height: auto;
+  margin: 0px !important;
+  display: block;
+}
+.bind-other::after{
+  display: none;
+}

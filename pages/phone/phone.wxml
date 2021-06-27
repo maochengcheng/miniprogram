@@ -1,0 +1,5 @@
+<!--pages/phone/phone.wxml-->
+    <view class="pd-all-list flex-row bg-white flex-between bor-bottom" wx:for="{{phone}}">
+      <view>联系信息：</view>
+      <view class="fs-14 color-666">{{item.note}}</view>
+    </view>

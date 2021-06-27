@@ -1,0 +1,111 @@
+<!--pages/register/commit/commit.wxml-->
+<view class="commit" style="{{iphone}}">
+	<view class="posi-rela">
+		<image class="img-commit-bg" src="/images/commit-bg.png"></image>
+		<view class="posi-all">
+			<image class="posi-center bor-ra-all img-avatar" src="{{user.avatarUrl}}"></image>
+		</view>
+	</view>
+	<view class="pd-all-10 bg-white color-detail">
+		<view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				姓名</view>
+			<view class="flex-one">
+				<input placeholder-class="place" value='{{lay.name}}' bindinput="getValue" data-name="name" placeholder="请输入您的姓名"></input>
+			</view>
+		</view>
+		<view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				性别</view>
+			<view class="flex-one" bindtap="selectSex">
+				<view>
+					<text class="place" wx:if="{{!lay.gender}}">请选择您的性别</text>
+					<text wx:if="{{lay.gender}}">{{gender[lay.gender]}}</text>
+				</view>
+				<!-- <view>
+					<image src="/images/right-arrow.png" class="img-arrow"></image>
+				</view> -->
+			</view>
+		</view>
+		<view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				手机号</view>
+			<view class="flex-one">
+				<input type="number" value="{{lay.phone}}" maxlength="11" placeholder-class="place" bindinput="getValue" data-name="phone" placeholder="请输入您的手机号"></input>
+			</view>
+		</view>
+
+		<!-- <view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				验证码</view>
+			<view class="flex-one">
+				<input type="number" maxlength="11" placeholder-class="place" bindinput="getValue" data-name="code" placeholder="请输入验证码"></input>
+			</view>
+			<view class="width-100" bindtap="getCode">
+				<view class="get-code">{{codeName}}</view>
+			</view>
+		</view> -->
+
+		<view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				身份证号</view>
+			<view class="flex-one">
+				<input type="idcard" value="{{lay.idNumber}}" maxlength="18" placeholder-class="place" bindinput="getValue" data-name="idNumber" placeholder="请输入您的身份证号"></input>
+			</view>
+		</view>
+		<view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				律师证号</view>
+			<view class="flex-one">
+				<input placeholder-class="place" bindinput="getValue" data-name="lawyer" value="{{lay.lawyer}}" placeholder="请输入您的律师证号"></input>
+			</view>
+		</view>
+		<view class="flex-row pd-ver-11 bor-bottom">
+			<view class="width-100">
+				律师事务所</view>
+			<view class="flex-one">
+				<input placeholder-class="place" bindinput="getValue" data-name="lawOffice" value="{{lay.lawOffice}}" placeholder="请输入律师事务所名称"></input>
+			</view>
+		</view>
+		<!-- <view class=" pd-ver-11 ">
+      <view class="width-100">
+        上传照片</view>
+      <view class="img-upload bg-gray posi-rela bor-ra-2 mt-8"  bindtap="uploadImg">
+         <image class="img-photo posi-center" wx:if="{{!lay.photo}}"  mode="aspectFill"  src="/images/photo.png"></image>
+        <image class="img-upload" src="{{httpUrl+'/'+lay.photo}}" wx:if="{{lay.photo}}"></image>
+      </view>
+    </view> -->
+		<view class=" pd-ver-11 ">
+			<view class="">
+				请上传律师信息页和最新年度考核备案页</view>
+			<view class="flex-row flex-wrap ">
+				<view class="posi-rela mr-9 mt-15 three" wx:for="{{lay.certificate}}" wx:for-item="item" wx:for-inex="index" wx:key="index">
+					<image class="img-upload-two" catchtap="previewImg" mode="aspectFill" data-url="{{httpUrl+'/'+item.path}}" src="{{httpUrl+'/'+item.path}}"></image>
+					<image class="posi-right-top img-close bg-white bor-ra-all" bindtap="del" data-index="{{index}}" src="/images/close.png"></image>
+				</view>
+				<view class="posi-rela mr-9 mt-15 three">
+					<image class="img-upload-two" bindtap="uploadCertificate" wx:if="{{lay.certificate.length<2}}" src="/images/upload.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class=" fs-14 lh-22 pd-all-10 mt-10">
+		<view>
+			<view>温馨提示:</view>
+			<view>{{caption?caption.note:"无"}}</view>
+		</view>
+		<view class="flex-row align-center mt-10" bindtap="selectPro">
+			<view wx:if="{{!selectProtocol}}" class="img-no-select bor-select bor-ra-all mr-10"></view>
+			<image wx:if="{{selectProtocol}}" class="img-select mr-10" src="/images/select.png"></image>
+			<view>已阅读并同意
+			</view>
+			<view class="color-blue" catchtap="closeProtocol">
+				《用户服务协议》
+			</view>
+		</view>
+	</view>
+	<protocol bindclose="closeProtocol" wx:if="{{showProtocol}}" bindconfrim="confrimProtocol"></protocol>
+	<bottom-btn>
+		<view class="bottom-btn" bindtap="submit">确定{{type?'提交':'注册'}}</view>
+	</bottom-btn>
+</view>

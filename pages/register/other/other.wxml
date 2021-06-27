@@ -1,0 +1,13 @@
+<!--pages/register/other.wxml-->
+<view class="bind">
+	<view class="bind-input">
+		<input placeholder="请输入手机号" bindinput="getInputValue" data-key="phone"></input>
+	</view>
+	<view class="bind-input bind-send">
+		<input placeholder="请输入验证码" bindinput="getInputValue" data-key="code"></input>
+    <view class="send-button" bindtap="sendCode">{{codeName}}</view>
+	</view>
+	<view class="bind-button">
+		<button bindtap="phoneLogin">确定</button>
+	</view>
+</view>

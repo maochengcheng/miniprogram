@@ -1,0 +1,41 @@
+<!--pages/meet/meetList/index.wxml-->
+<view>
+  <view class="pd-lev-10 bg-white posi-fixed">
+    <view class="tap  posi-rela flex-row flex-between  lh-22 fs-12">
+      <block wx:for="{{menus}}" wx:key="index">
+        <view bindtap="selectMenu" data-index="{{index}}" class="tap-item  pd-ver-10  text-center {{currnet==index?'color-blue':''}}">{{item.name}}</view>
+      </block>
+      <view class="tap-bottom" style="{{'margin-left:'+margin}}"></view>
+    </view>
+  </view>
+  <view style="height:84rpx;"></view>
+  <view class="list pd-all-10 fs-14">
+    <view class="pd-all-list bg-white mb-10" bindtap="goDetail" data-index="{{index}}" wx:for="{{list}}" wx:key="index">
+      <view class="flex-row flex-between lh-22">
+        <view>
+          <text>被会见人：</text>
+          <text>{{item.suspectsName}}</text>
+        </view>
+        <view>
+          <text wx:if="{{item.certification=='UNREVIEWED'}}" class="color-blue">待审核</text>
+          <text wx:if="{{item.certification=='PASS'}}" class="color-green">已通过</text>
+          <text wx:if="{{item.certification=='REJECTED'}}" class="color-red">已拒绝</text>
+          <text wx:if="{{item.certification=='CANCEL'}}" class="color-999">已取消</text>
+        </view>
+      </view>
+      <view class="lh-22">
+        <text>预约时间：</text>
+        <text>{{item.appointmentTime}}</text>
+      </view>
+      <view class="flex-row flex-end mt-10">
+        <view  class="confirm mr-10" catchtap="cancel" data-index="{{index}}" wx:if="{{item.certification=='UNREVIEWED' }}">取消</view>
+        <view  class="confirm" data-index="{{index}}" catchtap="align" wx:if="{{item.certification!='UNREVIEWED'}}">再次预约</view>
+      </view>
+    </view>
+    <view class="place text-center mt-25">
+      <text class="fs-12" wx:if="{{!loading}}">没有更多了...</text>
+      <text class="fs-12" wx:if="{{loading}}">加载中...</text>
+    </view>
+  </view>
+
+</view>

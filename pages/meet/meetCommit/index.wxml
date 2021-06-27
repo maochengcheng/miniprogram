@@ -1,0 +1,188 @@
+<!--pages/meet/meetCommit/index.wxml-->
+<view class="meet" style="{{iphone}}">
+
+
+
+
+
+	<view class="pd-all-meet">
+
+		<!-- <picker range="{{dententionList}}" disabled="{{type=='reserve'}}" bindchange="selectDontention" range-key="name" value="{{layCenterName}}"> -->
+			<picker range="{{dententionList}}"  bindchange="selectDontention" range-key="name" value="{{layCenterName}}">
+			<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom">
+				<view class="color-666">{{type=='reserve'?'单位':'远程会见地点'}}</view>
+				<view class="color-detail flex-row align-center ">
+					<text class="mr-10" wx:if="{{layCenterName}}">{{layCenterName}}</text>
+					<text class="mr-10 color-999" wx:else>请选择会见单位</text>
+					<image src="/images/right-arrow.png" class="img-arrow"></image>
+				</view>
+			</view>
+		</picker>
+	<view class="line"></view>
+		<view class="color-detail mb-8">预约信息</view>
+
+	<view class="pd-all-meet">
+		<view class="color-detail">预约时间</view>
+		<view class="time-tap mt-15" wx:if="{{times && times.length}}">
+			<view bindtap="selectTime" data-index="{{index}}" style="{{100/times.length+'%'}}" class="time-item {{currentTime==index?'time-active':''}}" wx:for="{{times}}" wx:key="index">{{item.period}}</view>
+		</view>
+		<view wx:if="{{!times || !times.length}}" class="place mt-10 color-red">暂无预约时间段，请选择其他预约日期</view>
+		<view class="mt-15 fs-14 flex-row flex-between" wx:if="{{times && times.length}}">
+			<view class="color-666">可约数量</view>
+			<view class="color-detail">{{times[currentTime].peopleNumber?times[currentTime].peopleNumber:0}}</view>
+		</view>
+	</view>
+
+
+		<picker mode="date" bindchange="selectDate" value="{{layDate}}">
+			<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom">
+				<view class="color-666">预约日期</view>
+				<view class="color-detail flex-row align-center ">
+					<text class="mr-10" wx:if="{{layDate}}">{{layDate}}</text>
+					<text class="mr-10 color-999" wx:else>请选择日期</text>
+					<image src="/images/right-arrow.png" class="img-arrow"></image>
+				</view>
+			</view>
+		</picker>
+		<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom">
+			<view class="color-666">被会见人姓名</view>
+			<view class="color-detail">
+				<input class="text-right" bindinput="getName" placeholder-class="color-999 " placeholder="请输入姓名"></input>
+			</view>
+		</view>
+
+		<picker mode="date" bindchange="birthdayDate" value="{{birthday}}">
+			<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom">
+				<view class="color-666">被会见人出生日期</view>
+				<view class="color-detail flex-row align-center ">
+					<text class="mr-10" wx:if="{{birthday}}">{{birthday}}</text>
+					<text class="mr-10 color-999" wx:else>请选择出生日期</text>
+					<image src="/images/right-arrow.png" class="img-arrow"></image>
+				</view>
+			</view>
+		</picker>
+				<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom">
+			<view class="color-666">诉讼状态</view>
+			<view class="color-detail">
+				<input class="text-right" bindinput="lawsuitStatusInput" placeholder-class="color-999 " placeholder="请输入诉讼状态"></input>
+			</view>
+		</view>
+
+		<!-- <view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom " bindtap="closePlate">
+			<view class="color-666 ">车牌号</view>
+			<view class="color-detail ">
+				<input class="text-right" disabled="true" value="{{layNumber}}" bindinput="getNumber" placeholder-class="color-999 " placeholder="请输入车牌号 "></input>
+			</view>
+		</view> -->
+		
+		<!-- <picker mode="selector" range="{{selects}}" bindchange="selectFrist" wx:if="{{type!='video'}}">
+			<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom ">
+				<view class="color-666 ">是否初次会见</view>
+				<view class="color-detail flex-row align-center ">
+					<text class="mr-10 " wx:if="{{layFrist}}">{{layFrist}}</text>
+					<text class="mr-10 color-999 " wx:else>请选择</text>
+					<image src="/images/right-arrow.png " class="img-arrow "></image>
+				</view>
+			</view>
+		</picker>
+		<picker mode="selector" range="{{selects}}" bindchange="selectFood" wx:if="{{type!='video'}}">
+			<view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom ">
+				<view class="color-666 ">是否订餐</view>
+				<view class="color-detail flex-row align-center ">
+					<text class="mr-10 " wx:if="{{layQuantity}}">{{layQuantity}}</text>
+					<text class="mr-10 color-999 " wx:else>请选择</text>
+					<image src="/images/right-arrow.png " class="img-arrow "></image>
+				</view>
+			</view>
+		</picker> -->
+
+		<!-- <view class="flex-row flex-between pd-ver-15 fs-14 bor-bottom" wx:if="{{layQuantity=='是'}}">
+			<view class="color-666">订餐份数</view>
+			<view class="color-detail">
+				<input class="text-right" bindinput="getQuantity" placeholder-class="color-999 " placeholder="请输入份数(数字)"></input>
+			</view>
+		</view> -->
+
+	</view>
+	<view class="line "></view>
+	<view class="pd-all-meet" wx:if="{{type!='reserve'}}">
+		<view>请上传律师证</view>
+		<view class="mt-10 flex-row flex-wrap ">
+			<view class="posi-rela mr-9 mt-15 three">
+				<image class="img-upload-two" mode="aspectFill" catchtap="previewImg" wx:if="{{layCeri[0]&&layCeri[0].path}}" data-index="0" data-type="letter" src="{{httpUrl+'/'+layCeri[0].path}}"></image>
+				<image class="posi-right-top img-close bg-white bor-ra-all" bindtap="delCeri" wx:if="{{layCeri[0]&&layCeri[0].path}}" data-index="0" src="/images/close.png"></image>
+				<view class="posi-rela mr-9  three">
+					<image bindtap="upLaywer" data-index="0" class="img-upload-two" wx:if="{{!layCeri[0]||!layCeri[0].path}}" src="/images/upload.png"></image>
+				</view>
+			</view>
+				<view class="posi-rela mr-9 mt-15 three">
+				<image class="img-upload-two" mode="aspectFill" catchtap="previewImg" wx:if="{{layCeri[1]&&layCeri[1].path}}" data-index="1" data-type="letter" src="{{httpUrl+'/'+layCeri[1].path}}"></image>
+				<image class="posi-right-top img-close bg-white bor-ra-all" bindtap="delCeri" wx:if="{{layCeri[1]&&layCeri[1].path}}" data-index="1" src="/images/close.png"></image>
+				<view class="posi-rela mr-9  three">
+					<image bindtap="upLaywer" data-index="1" class="img-upload-two" wx:if="{{!layCeri[1]||!layCeri[1].path}}" src="/images/upload.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="pd-all-meet" wx:if="{{type!='reserve'}}">
+		<view>请上传律师会见在押犯罪嫌疑人、被告人专用介绍信</view>
+		<view class="mt-10 flex-row flex-wrap ">
+			<view class="posi-rela mr-9 mt-15 three" wx:for="{{layLetter}}" wx:for-item="item" wx:for-inex="index" wx:key="index">
+				<image class="img-upload-two" mode="aspectFill" catchtap="previewImg" data-index="{{index}}" data-type="letter" src="{{httpUrl+'/'+item.path}}"></image>
+				<image class="posi-right-top img-close bg-white bor-ra-all" bindtap="delLetter" data-index="{{index}}" src="/images/close.png"></image>
+			</view>
+			<view class="posi-rela mr-9 mt-15 three">
+				<image bindtap="uploadImg" class="img-upload-two" wx:if="{{layLetter.length<3}}" src="/images/upload.png"></image>
+			</view>
+		</view>
+	</view>
+	<view class="pd-all-meet">
+		<block wx:if="{{type!='reserve'}}">
+			<view>请上传当事人委托书</view>
+			<view class="mt-10 flex-row flex-wrap ">
+				<view class="posi-rela mr-9 mt-15 three" wx:for="{{layBook}}" wx:for-item="item" wx:for-inex="index" wx:key="index">
+					<image class="img-upload-two" mode="aspectFill" catchtap="previewImg" data-index="{{index}}" data-type="book" src="{{httpUrl+'/'+item.path}}"></image>
+					<image class="posi-right-top img-close bg-white bor-ra-all" bindtap="delBook" data-index="{{index}}" src="/images/close.png"></image>
+				</view>
+				<view class="posi-rela mr-9 mt-15 three">
+					<image class="img-upload-two" bindtap="uploadCertificate" wx:if="{{layBook.length<3}}" src="/images/upload.png"></image>
+				</view>
+			</view>
+		</block>
+		<view class="mt-25">
+			<view>订阅消息</view>
+		</view>
+		<view class="mt-13 fs-12 lh-22 color-detail">
+			<button class="message-btn" bindtap="message">订阅消息</button>
+		</view>
+		<view class=" fs-12 lh-22 color-detail">
+			请点击订阅消息按钮，并允许使用。否则将接收不到预约申请通过的服务通知。如需保持允许状态，请选择弹窗底部“总是保持以上选择，不再询问”
+		</view>
+
+		<view class="mt-25">
+			<view>温馨提示</view>
+		</view>
+		<view class="mt-13 fs-12 lh-22 color-detail">
+			{{reseveCaption?reseveCaption.note:'无'}}
+
+		</view>
+
+		<view class="flex-row align-center mt-10 fs-14">
+			<view class="flex-row align-center" bindtap="selectPro">
+				<view wx:if="{{!selectProtocol}}" class="img-no-select bor-select bor-ra-all mr-10"></view>
+				<image wx:if="{{selectProtocol}}" class="img-select mr-10" src="/images/select.png"></image>
+				<view>已阅读并同意
+				</view>
+			</view>
+			<view catchtap="closeProtocol" class="color-blue">
+				《预约须知》
+			</view>
+		</view>
+	</view>
+
+	<protocol bindclose="closeProtocol" detail="{{detail_content}}" wx:if="{{showProtocol}}" bindconfrim="confrimProtocol"></protocol>
+	<plant bindclose="closePlate" bindresult="getResult" showme="{{showPlate}}"></plant>
+	<bottomBtn>
+		<view class="bottom-btn {{!times || !times.length?'bg-bottom-gray':''}}" bindtap="submit">确定预约</view>
+	</bottomBtn>
+</view>

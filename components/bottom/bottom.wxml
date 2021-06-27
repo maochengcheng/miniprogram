@@ -1,0 +1,4 @@
+<!--components/bottom/bottom.wxml-->
+<view class="fix {{iphone?'iPhone-x':''}}">
+  <slot></slot>
+</view>

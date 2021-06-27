@@ -1,0 +1,119 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.0",
+	"appid": "wx59e00bd9bbace06b",
+	"projectname": "sunchat_miniprogram",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"list": []
+		},
+		"conversation": {
+			"list": []
+		},
+		"plugin": {
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"list": []
+		},
+		"miniprogram": {
+			"list": [
+				{
+					"id": -1,
+					"name": "注册首页",
+					"pathName": "pages/register/home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册提交页",
+					"pathName": "pages/register/commit/commit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "个人资料",
+					"pathName": "pages/people/people",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的会见",
+					"pathName": "pages/meet/myMeet/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会见列表",
+					"pathName": "pages/meet/meetList/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会见详情",
+					"pathName": "pages/meet/meetDetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会见提交",
+					"pathName": "pages/meet/meetCommit/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "换绑",
+					"pathName": "pages/register/other/other",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

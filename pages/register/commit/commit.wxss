@@ -1,0 +1,12 @@
+/* pages/register/commit/commit.wxss */
+.get-code{
+ width: 100%;
+ height: 60rpx;
+  padding: 0px;
+  color: white;
+  border-radius: 4rpx;
+  background-color:rgba(41,135,249,1) ;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+}

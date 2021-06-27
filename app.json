@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/register/home/index",
+    "pages/register/commit/commit",
+    "pages/people/people",
+    "pages/notice/notice",
+    "pages/meet/myMeet/index",
+    "pages/meet/meetList/index",
+    "pages/meet/meetDetail/index",
+    "pages/meet/meetCommit/index",
+    "pages/phone/phone",
+    "pages/register/other/other"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2987F9",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 20000
+  },
+  "sitemapLocation": "sitemap.json"
+}

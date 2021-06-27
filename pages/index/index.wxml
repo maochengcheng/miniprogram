@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="home" style="width:100vw;height:100vh;">
+
+  <image class="img-home" src="/images/home-bg.png"></image>
+  <view class="posi-all pd-all-10">
+    <view>
+      <swiper indicator-dots="true" style="height:{{height}}px;" indicator-color="rgba(255,255,255,0.2)" indicator-active-color="rgba(255,255,255,1)" autoplay>
+        <block wx:for="{{banner}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <swiper-item>
+            <image style="height:{{height}}px;" mode="aspectFill" src="{{httpUrl+'/'+item.path}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- <view class="caption pd-all-10 mt-13 flex-row fs-12 bg-transpent bor-ra-2">
+      <view class="color-white" style="line-heigth:1;">温馨提示：</view>
+      <view class="flex-one color-caption over-h">
+        <swiper style="height:32rpx;" circular>
+          <swiper-item wx:for="{{caption}}" wx:key="index">
+            <van-notice-bar text="{{note}}" color="#ffffff">
+              <text slot="left-icon">公告</text>
+            </van-notice-bar>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view> -->
+    <view class="flex-row flex-wrap flex-between">
+      <view class="menu-item posi-rela mt-13" wx:for="{{menus}}" wx:for-item="item" wx:key="index" bindtap="goUrl" data-index="{{index}}">
+        <image class="img-menu" src="{{item.bg}}"></image>
+        <view class="posi-all pd-all-10 text-right color-white fs-14">
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

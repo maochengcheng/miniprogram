@@ -1,0 +1,21 @@
+<!--pages/register/home/index.wxml-->
+<view class="register pd-all-10">
+  <view class="posi-rela">
+    <image class="img-register" src="/images/show_one.png"></image>
+    <view class="posi-all">
+    </view>
+  </view>
+  <view class="pd-register bg_white fs-14 lh-23 bg-white color_black">
+    <!-- <view class="">充分运行信息化手段，提高律师会见效率，维护在押犯罪嫌疑人、被告人合法权益，保障刑事诉讼活动的顺利进行。</view>
+    <view>
+      合肥支队倾力打造律师会见一站式服务，只为便民、惠民，共创和谐社会！
+    </view> -->
+    {{caption?caption.note:'无'}}
+  </view>
+
+  <bottom-btn>
+    <button class="bind-other" open-type="getUserInfo" bindgetuserinfo="goOther" >已有账号？使用手机号换绑</button>
+    <button class="bottom-btn open-btn" size="default" open-type="getUserInfo" bindgetuserinfo="goRegister">注册</button>
+  </bottom-btn>
+
+</view>

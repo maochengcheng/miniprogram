@@ -1,0 +1,40 @@
+/* pages/register/other.wxss */
+.bind{
+background-color: white;
+margin: 15px;
+padding: 15px;
+border-radius: 2px;
+font-size: 32rpx;
+}
+.bind-input{
+  padding: 10px 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid gainsboro;
+}
+.bind-send{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.send-button{
+  background-color: rgba(41,135,249,1);
+  color: white;
+  padding: 8px 8px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  line-height: 1;
+}
+
+.bind-button{
+  width: 100%;
+  margin-top: 20px;
+}
+.bind-button button{
+  width: 100%;
+  background-color: rgba(41,135,249,1);
+  color: white;
+  font-weight: normal;
+  font-size: 32rpx;
+  line-height: 1 !important;
+  padding: 12px  0px;
+}

@@ -1,0 +1,11 @@
+/* components/bottom/bottom.wxss */
+.fix{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+}
+.iPhone-x{
+  padding-bottom: 34px;
+}

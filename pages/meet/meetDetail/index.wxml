@@ -1,0 +1,74 @@
+<!--pages/meet/meetDetail/index.wxml-->
+<view class="detail pd-all-detail fs-14 lh-22 color-666" style="{{iphone}}">
+  <view class="flex-row mb-8">
+    <view>审核状态：</view>
+    <view>
+      <text wx:if="{{detail.certification=='UNREVIEWED'}}" class="color-blue">待审核</text>
+      <text wx:if="{{detail.certification=='PASS'}}" class="color-green">已通过</text>
+      <text wx:if="{{detail.certification=='REJECTED'}}" class="color-red">已拒绝</text>
+      <text wx:if="{{detail.certification=='CANCEL'}}" class="color-999">已取消</text>
+    </view>
+  </view>
+  <view class="flex-row mb-8">
+    <view>预约状态：</view>
+    <view>
+      <text wx:if="{{detail.accessStatus=='VISITED'}}" class="color-green">已到访</text>
+      <text wx:if="{{detail.accessStatus=='NOTVISITED'}}" class="color-blue">未到访</text>
+      <text wx:if="{{detail.accessStatus=='END'}}" class="color-999">会面结束</text>
+    </view>
+  </view>
+  <view class="flex-row mb-8">
+    <view>预约人：</view>
+    <view>{{detail.attorneyName}}</view>
+  </view>
+  <view class="flex-row mb-8">
+    <view>被会见人：</view>
+    <view>{{detail.suspectsName}}</view>
+  </view>
+  <view class="flex-row mb-8">
+    <view>预约时间：</view>
+    <view>{{detail.appointmentTime}}</view>
+  </view>
+  <view class="flex-row mb-8">
+    <view>单位：</view>
+    <view>{{detail.detentionCenterName}}</view>
+  </view>
+  <!-- <view class="flex-row mb-8">
+    <view>可约数量：</view>
+    <view>14</view>
+  </view> -->
+  <!-- <view class="flex-row mb-8">
+    <view>车牌号：</view>
+    <view>{{detail.numberplate || "无"}}</view>
+  </view> -->
+   <view class="flex-row mb-8">
+    <view>诉讼状态：</view>
+    <view>{{detail.lawsuitStatus || "无"}}</view>
+  </view> 
+  <view class="flex-row mb-8">
+    <view>是否初始会见：</view>
+    <view>是</view>
+  </view>
+  <block wx:if="{{detail.type!='OFFLINE'}}">
+    <view class="mb-8">在押犯罪嫌疑人、被告人专用介绍信</view>
+    <view class="mb-8 flex-row">
+      <block wx:for="{{detail.qualifications1}}" wx:key="{{index}}">
+        <image catchtap="previewImg" mode="aspectFill" data-type="1" data-url="{{httpUrl+'/'+item.path}}" class="img-upload-two" src="{{httpUrl+'/'+item.path}}"></image>
+      </block>
+    </view>
+    <view class="mb-8">当时人委托书</view>
+    <view>
+      <view class="mb-8 flex-row">
+        <block wx:for="{{detail.qualifications2}}" wx:key="{{index}}">
+          <image catchtap="previewImg" mode="aspectFill" data-type="2" data-url="{{httpUrl+'/'+item.path}}" class="img-upload-two" src="{{httpUrl+'/'+item.path}}"></image>
+        </block>
+      </view>
+    </view>
+  </block>
+  <bottom>
+    <view class="bottom-btn" bindtap="cancel" wx:if="{{detail.certification=='UNREVIEWED'}}">取消</view>
+    <view class="bottom-btn" bindtap="align" wx:if="{{detail.certification!='UNREVIEWED'}}">再次预约</view>
+
+  </bottom>
+
+</view>

@@ -1,0 +1,50 @@
+<!--pages/people/people.wxml-->
+<view class="people">
+  <view class="posi-rela">
+    <image class="img-commit-bg" src="/images/commit-bg.png"></image>
+    <view class="posi-all">
+      <image class="posi-center bor-ra-all img-avatar" src="{{info.wechatAvatar}}"></image>
+    </view>
+  </view>
+  <view class="pd-lev-9 bg-white">
+    <view class="pd-ver-15 flex-row flex-between bor-bottom">
+      <view>姓名</view>
+      <view class="fs-14 color-666">{{info.name}}</view>
+    </view>
+    <view class="pd-ver-15 flex-row flex-between bor-bottom">
+      <view>手机号</view>
+      <view class="fs-14 color-666">{{info.phone || ""}}</view>
+    </view>
+    <view class="pd-ver-15 flex-row flex-between bor-bottom">
+      <view>身份证号</view>
+      <view class="fs-14 color-666">{{info.idNumber}}</view>
+    </view>
+    <view class="pd-ver-15 flex-row flex-between bor-bottom">
+      <view>执照号</view>
+      <view class="fs-14 color-666">{{info.licenseNumber}}</view>
+    </view>
+    <view class="pd-ver-15 flex-row flex-between bor-bottom">
+      <view>律师事务所</view>
+      <view class="fs-14 color-666">{{info.lawOffice}}</view>
+    </view>
+    <view class="pd-ver-15 flex-row flex-between {{info.certification!='PASS'?'bor-bottom':'' }}">
+      <view>审核状态</view>
+      <view class="fs-14">
+        <text class="color-blue" wx:if="{{info.certification=='UNREVIEWED'}}">未审核</text>
+        <text class="color-red" wx:if="{{info.certification=='REJECTED'}}">未通过</text>
+        <text class="color-green" wx:if="{{info.certification=='PASS'}}">已通过</text>
+      </view>
+    </view>
+    <!-- <view class="pd-ver-15 flex-row flex-between " bindtap="goPhone">
+      <view>联系管理员</view>
+      <view class="fs-14">
+        <image class="img-select" src="/images/right-arrow.png"></image>
+      </view>
+    </view> -->
+    <view class="pd-ver-15 auth-btn " wx:if="{{info.certification!='PASS'}}">
+
+      <button bindgetuserinfo="renewAuth" open-type="getUserInfo">重新提交审核</button>
+    </view>
+  </view>
+
+</view>

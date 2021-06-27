@@ -1,0 +1,12 @@
+/* pages/people/people.wxss */
+.auth-btn button{
+
+    width: 100% !important;
+    margin: 0px !important;
+    font-weight: normal;
+    background-color: rgba(41,135,249,1);
+    color: white;
+    font-size: 32rpx;
+    padding: 12px 0px;
+  }
+

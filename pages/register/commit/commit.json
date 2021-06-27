@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "bottom-btn":"/components/bottom/bottom",
+    "protocol":"/components/protocol/protocol"
+  },
+  "navigationBarTitleText":"注册"
+}

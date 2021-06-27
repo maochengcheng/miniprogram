@@ -1,0 +1,5 @@
+/* pages/notice/notice.wxss */
+@import "../../components/wxParse/wxParse.wxss";
+page{
+  background-color: white
+}

@@ -1,0 +1,45 @@
+/* pages/meet/meetList/index.wxss */
+
+.tap {
+}
+
+.tap-item {
+  width: 20%;
+}
+
+.tap-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 10%;
+  background-color: #2987f9;
+  height: 4rpx;
+  transition: all 0.2s ease-in-out;
+}
+
+button {
+  display: block;
+  padding: 0rpx;
+  font-weight: normal;
+  font-size: 28rpx;
+  border-radius: 32px;
+}
+
+.cancel {
+  width: 164rpx;
+  height: 62rpx;
+  border: 1px solid rgba(207, 207, 207, 1);
+  color: rgba(207, 207, 207, 1);
+  line-height: 62rpx;
+  text-align: center;
+  border-radius: 32px;
+}
+
+.confirm {
+  width: 164rpx;
+  height: 62rpx;
+  border: 1px solid rgba(41, 135, 249, 1);
+  color: rgba(41, 135, 249, 1);
+  line-height: 62rpx;
+  text-align: center;
+  border-radius: 32px;
+}

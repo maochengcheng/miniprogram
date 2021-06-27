@@ -1,0 +1,50 @@
+<!--pages/components/plate/plate.wxml-->
+<view class="plate" wx:if="{{showThis}}" catchtap="closeMyself">
+  <view class="plate-content" catchtap="stop">
+    <view class="flex-row flex-between city {{cityShow?'select-active':''}}" catchtap="showCity">
+      <view class="title">{{plateSelect?plateSelect:'请选择简称'}}</view>
+      <image class="img-one" src="/images/arrow_right_light.png"></image>
+      <view class="select-modal">
+        <view class="select-item" wx:for="{{plate}}" catchtap="selectCity" data-index="{{index}}">
+          {{item}}</view>
+      </view>
+    </view>
+    <view class="flex-row flex-between letter {{letterShow?'select-active':''}}" catchtap="showLetter" >
+      <view class="title">{{letterSelect?letterSelect:'请选择字母'}}</view>
+      <image class="img-one" src="/images/arrow_right_light.png"></image>
+      <view class="select-letter">
+        <view class="select-item" wx:for="{{letter}}" catchtap="selectLetter" data-index="{{index}}">
+          {{item}}</view>
+      </view>
+    </view>
+    <view class="flex-row flex-between">
+      <view class="title">{{numSelect?numSelect:'请输入车牌号码'}}</view>
+      <image catchtap="clearNum" class="img-two" src="/images/close.png"></image>
+    </view>
+    <view class="flex-row-two mt-32 " wx:if="{{selectStatus==1}}">
+      <view wx:for="{{num}}" class="num-item" catchtap="selectNum" data-index="{{index}}" data-type="num">
+        <view :key="index">{{item}}</view>
+      </view>
+    </view>
+    <view class="flex-row-two mt-32 " wx:if="{{selectStatus==2}}">
+      <view wx:for="{{letter}}" class="num-item" catchtap="selectNum" data-index="{{index}}" data-type="letter" :key="{{index}}">
+      {{item}}  
+      </view>
+    </view>
+    <!-- <view class="flex-row-two mt-32" wx:if="{{selectStatus==3}}">
+      <view wx:for="{{plate}}" class="num-item" catchtap="selectNum" data-index="{{index}}" data-type="china" :key="{{index}}">{{item}}</view>
+    </view> -->
+    <view class="flex-row-two mt-32" wx:if="{{selectStatus==4}}">
+      <view wx:for="{{other}}" :key="{{index}}" class="num-item" data-index="{{index}}" data-type="other" catchtap="selectNum">{{item}}</view>
+    </view>
+    <view class="keyboard">
+      <text catchtap="changeKeyboard" data-key="2" wx:if="{{selectStatus==1 ||selectStatus==4}}">字母键盘</text>
+      <text  catchtap="changeKeyboard" data-key="1"  wx:if="{{selectStatus==2 ||selectStatus==4}}">数字键盘</text>
+      <!-- <text catchtap="changeKeyboard" data-key="3"  wx:if="{{selectStatus==1 ||selectStatus==2}}">省份键盘</text> -->
+      <text catchtap="changeKeyboard" data-key="4" wx:if="{{selectStatus==1 || selectStatus==2}}">特殊键盘</text>
+    </view>
+    <view class="btn">
+      <button catchtap="back" class="{{backStatus?'active':''}}">确定</button>
+    </view>
+  </view>
+</view>

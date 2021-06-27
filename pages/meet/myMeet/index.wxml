@@ -1,0 +1,11 @@
+<!--pages/meet/myMeet/index.wxml-->
+<view>
+  <view bindtap="goMeet" data-type="reserve" class="flex-row flex-between bg-white pd-all-meet bor-bottom">
+    <view>预约会见</view>
+    <image class="img-arrow" src="/images/right-arrow.png"></image>
+  </view>
+  <!-- <view bindtap="goMeet"  data-type="video" class="flex-row flex-between bg-white pd-all-meet ">
+    <view>远程会见</view>
+    <image class="img-arrow" src="/images/right-arrow.png"></image>
+  </view> -->
+</view>
